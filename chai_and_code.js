@@ -874,7 +874,7 @@ for (const greet of greetigs) {
 }
 
 
-//       Maps
+//       Maps(Maping)
 
 const map1 = new Map();
 map1.set("IN", "India");
@@ -884,7 +884,7 @@ map1.set("IN", "India")
 
 //console.log(map1);
 
-// console.log(map1.get("IN"));
+ //console.log(map1.get("IN"));
 // console.log(map1.get("UK"));
 // console.log(map1.get("US"));
 
@@ -1127,4 +1127,403 @@ const shopingCards = [
 
  const priceToPay = shopingCards.reduce((items,acc) => acc+ items.price,0)
 
- console.log(priceToPay);
+ //console.log(priceToPay);
+
+
+
+// -----> DOM Introductions <-------------
+
+/// Saprate file for the DOM to the folder Practice_JavaScript/DOM
+
+
+
+// ------>  Events  <----------------
+
+// Saprate file for the Events to the folder Practice_JavaScript/Events
+
+// ------> Asynchronuous  <---------
+
+//  * Javascript -> synchronous(one by one code executed)    *Default
+//               -> single threaded                          *Default
+
+//   *Execution Context -> execute one line of code at a time
+//                      * each operation waits for the last on to complete before executing
+
+//   there are two type of code blocking in the JavaScript
+//       1*  Blocking Code -> block the flow of program -> Read file Sync
+//       2*  NonBlocking Code -> does not block execution -> Read file Async
+//
+//      -> JavaScript Engine = Memory Heap + CALL Stack
+
+
+
+//  --------> API request and V8 engine <-----------
+
+// Saprate file for the API Request and Promises to the folder Practice_JavaScript/ APIrequest
+
+
+// ----------> JavaScript classes and opps  <----------
+
+// in the JavaScript there is no classes but it is paradimes(style of writing the code) 
+/* -> it is object oriented programming language
+   -> collection of properties and methods
+
+  * parts of oop -> Object literal*
+
+   -> Constructor function
+   -> Prototypes
+   -> Classes
+   -> Instances (new, this)
+
+   ** 4 pillars
+
+   . Abstraction -> hide of the details (ex. fetch)
+   .Encapsulation -> Rapped of the Data information
+   .Inheritance   -> 
+   .Polymorphism  -> Many types of function(in hindi jaise rup)
+
+*/
+  //   ----------> OPPsin js <-------
+        // Object literal
+
+// const Users ={
+//   username:"Rahul",
+//   loginCount:8,
+//   singhId:true,
+
+//   getUserDetails :function(){
+   // console.log("Got user details from database");
+   //console.log(`Userinfo: ${this.Username}`);
+  // console.log(this);
+  //}
+//}
+
+//console.log(User.username);
+//console.log(User.getUserDetails())
+
+//console.log(this);
+
+
+//            constractor function  (new)
+
+// function User(Username,loginCount,singhId){
+//   this.Username = Username;
+//   this.loginCount = loginCount;
+//   this.singhId = singhId;
+
+//   return this
+// }
+// const userOne = User("Rahul",12,true)
+// const userTwo = User("JavaScript",11,false)
+
+// console.log(userOne);
+// console.log(userTwo);  //  this is the override to the userone
+
+// function Info(username, loginCount, singhId){
+//   this.username = username;
+//   this.loginCount = loginCount;
+//   this.singhId = singhId;
+
+//   this.greeting = function(){
+//     console.log(`Hello ${this.username}`);
+  
+//   }
+//   return this
+// }
+
+// const userOne = new Info("Rahul",12,true)
+// const userTwo = new Info("JavaScript",11,false)
+
+// console.log(userOne.constructor);      /*this is the constractor and give the new instanse for the new keyword */
+//console.log(userTwo);      
+
+
+//  =======> Prototypes <========
+
+/* Array -> object -> null
+   String -> object -> null
+   function -> it is also object -> null
+
+
+this -> meaning (jis)
+*/
+
+// function multiplyBy5(num){
+//   return 5*num;
+// }
+
+// multiplyBy5.power = 5;
+
+//console.log(multiplyBy5.power);
+//console.log(multiplyBy5.prototype);
+
+// function createUser(username,score){
+//    this.username =username
+//    this.score = score
+// }
+
+// createUser.prototype.increment = function(){
+//   this.score++;
+// }
+
+// createUser.prototype.printMe = function(){
+//   console.log(`price is ${this.score}`)
+// }
+
+// const chai1 = new createUser("chai",25)
+// const tea =  new createUser("tea",250)
+
+// chai1.printMe()
+
+/*
+
+Here's what happens behind the scenes when the new keyword
+is used:
+
+A new object is created: The new keyword initiates the
+creation of a new JavaScript object.
+
+A prototype is linked: The newly created object gets linked
+to the prototype property of the constructor function.This
+means that it has access to properties and methods defined
+on the constructor's prototype.
+
+The constructor is called: The constructor function is
+called with the specified arguments and this is bound to 
+the newly created object. If no explicit return value is
+specified from the constructor. JavaScript assumes this,
+the newly created object, to be the intended return value.
+
+the new object is returned: After the constructor function 
+has been called, if it is doesn't return a non-primitive value
+(object, array, function, etc.), the newly created object
+is returned.
+
+ */
+
+// ------> Prototype in JavaScript <----------
+
+// let myName = "Rahul"
+// let myCode ="js"
+// console.log(myName.truelength);
+
+// let myHeros = ["spiderman","thor"]
+
+// let heroPower ={
+//    spiderman:"sling",
+//    thor:"hammer",
+
+//    getSpiderPower: function(){
+//     console.log(`Spidy power is ${this.spiderman}`)
+//    }
+// }
+
+// Object.prototype.Rahul = function(){
+//      console.log(`Rahul is present in all objects`);
+// }
+
+// Array.prototype.heyRahul = function(){
+//   console.log(`Rahul says Hello`);
+// }
+//heroPower.Rahul()
+// myHeros.Rahul()
+// myHeros.heyRahul()
+//heroPower.heyRahul()    // fail
+
+
+//  -------> Inheritance <---------
+
+// const User = {
+//   name = "chai2",
+//   email = 'chai2@google.com',
+// }
+// const Teacher ={
+//   makeVideo:true
+// }
+
+// const TeachingSupport ={
+//   isAvailable: false
+// }
+
+// const TASupport ={
+//     makeAssignment:'JS assignment',
+//     fullTime: true
+//    __proto__: TeachingSupport
+
+// }
+
+// Teacher.__proto__ = User
+
+//    mordern syntax
+// Object.setPrototypeOf(TeachingSupport,Teacher)
+
+// let anotherUsername = "chaiaurcode     "
+
+// String.prototype.trueLength = function(){
+//   console.log(`${this}`);
+//   console.log(`The length is: ${this.trim().length}`);
+// }
+
+// anotherUsername.trueLength();
+// "Rahul".trueLength()
+// "iceTea".trueLength()
+
+
+//  -------> Call and this in JavaScript <-----------
+
+//function SetUsername(username){
+  // complex DB calls
+//   this.username = username;
+//   console.log("call");
+// }
+
+// function createUser(username,email,pass){
+//   SetUsername.call(this,username);
+//   this.email = email;
+//   this.pass = pass;
+  
+// }
+// const chai_ = new createUser("chai","chai@123.com","123")
+// console.log(chai_);
+
+
+// ---------> class constructor and static <--------
+      //ES6 ke bad ki chije
+
+// class User {
+//   constructor(username, email, password) {
+//     this.username = username;
+//     this.email = email;
+//     this.password = password;
+//   }
+
+//   encryptPassword() {
+//     return `${this.password}abc`;
+//   }
+
+//   changeUsername() {
+//     return `${this.username.toUpperCase()}`;
+//   }
+
+// }
+// const Script = new User("Java","java@gmail.com","123")
+// console.log(Script);
+// console.log(Script.encryptPassword());
+// console.log(Script.changeUsername());
+
+                 // behind the scene
+
+// function User(username,email,password){
+//   this.username = username;
+//   this.email = email;
+//   this.password = password;
+// }
+
+// User.prototype.encryptPassword = function(){
+//   return `${this.password}abc`;
+// }
+
+// User.prototype.changeUsername = function(){
+//   return `${this.username.toUpperCase()}`;
+// }
+
+// const Script = new User("tea","tea@gmail.com","123")
+// console.log(Script);
+// console.log(Script.encryptPassword());
+// console.log(Script.changeUsername());
+
+
+         // Inheritance
+
+// class User {
+//   constructor(username, email, password) {
+//     this.username = username;
+//     this.email = email;
+//     this.password = password;
+//   }
+//     logMe(){
+//       console.log(`USERNAME is ${this.username}`);
+//     }
+// }
+
+// class Admin extends User {
+//   constructor(username, email, password, role) {
+//     super(username, email, password);
+//     this.role = role;
+//   }
+
+//   addCourse() {
+//     console.log(`A new course was added by ${this.username}`);
+//   }
+// }
+
+// const Course = new Admin("chai","chai@gmail.com","123","admin")
+// Course.addCourse()
+// Course.logMe()
+
+// const masalachai = new User('masalachai')
+// masalachai.logMe()
+
+// console.log(Course === masalachai);
+// console.log(Admin === masalachai);
+// console.log(Course instanceof User);
+// console.log(Admin instanceof User);
+// console.log(masalachai);
+
+
+       // **static property
+
+// class User {
+//   constructor(username, email, password) {
+//     this.username = username;
+//     this.email = email;
+//     this.password = password;
+//   }
+//   logMe(){
+//     console.log(`Username is ${this.username}`)
+//   }
+
+//   static createId(){
+//     return `123`
+//   }
+// }
+
+//const rahul = new User("Rahul","rahul@gmail.com","123")
+//console.log(rahul.createId())   // not give any output it give error because we use the STATIC class
+
+
+// class Admin extends User {
+//   constructor(username,email) {
+//     super(username);
+//     this.email = email;
+//   }
+
+//   addCourse() {
+//     console.log(`A new course was added by ${this.username}`);
+//   }
+// }
+
+// const iphone = new Admin("iphone","iphone@gmail.com")
+// iphone.logMe()
+// iphone.addCourse()
+// iphone.createId() // not give any output it give error because we use the STATIC class
+
+
+
+// -------> Bind in JavaScript <-----------
+
+// Saprate file for the Bind() Method  to the folder Practice_JavaScript_By_HC/ Bind.html
+
+
+// -------> Getter and Setter in JavaScript <-----------
+
+// Saprate file for the Getter and Setter Method  to the folder Practice_JavaScript_By_HC/
+
+
+
+// -------> Lexical Scoping and Closure in JavaScript <-----------
+
+// Saprate file for the Lexical Scoping and Closure   to the folder Practice_JavaScript_By_HC/
+
+
+//  ---------> Ends in JavaScript <-------------
